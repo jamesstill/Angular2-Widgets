@@ -1,0 +1,25 @@
+// this file was auto-generated. See:{
+// https://briandesousa1.wordpress.com/2015/12/21/completing-the-angular-2-quick-start-in-vs-code/
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome against localhost, with sourcemaps",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "sourceMaps": true,
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ]
+        },
+        {
+            "name": "Attach with sourcemaps",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}/src/app"
+        }
+    ]
+}
