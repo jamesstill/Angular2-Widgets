@@ -5,7 +5,8 @@ illustrates how to use an ng2 service to call an API. The app displays a list, c
 deletes widgets. The app relies on an API published at http://angularwidgetsapi.azurewebsites.net
 but any API that returns JSON of this type will work:
 
-```[
+```
+[
   {
     "ID": 1,
     "Name": "Widget",
@@ -16,7 +17,8 @@ but any API that returns JSON of this type will work:
     "Name": "Gear",
     "Shape": "Round"
   }
-]```
+]
+```
 
 ## Running the Application
 
