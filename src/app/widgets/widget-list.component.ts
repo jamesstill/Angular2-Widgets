@@ -14,7 +14,7 @@ export class WidgetListComponent implements OnInit {
     pageTitle: string = "Widget List";
     widgets: Widget[];
     errorMessage: string;
-
+    
     constructor(private service: WidgetService) { }
 
     ngOnInit() {  
@@ -34,15 +34,14 @@ export class WidgetListComponent implements OnInit {
             this.service.deleteWidget(widget.ID)
                 .subscribe(
                     response => {
-                        if (response.status == 200) {
-                            this.widgets.forEach((w: Widget, i: number) => {
-                                if (w.ID === widget.ID) {
-                                    this.widgets.splice(i, 1);
-                                }
-                            }
-                        }
-                    }
-                );
+                        this.widgets.forEach((w: Widget, i: number) => {
+                        if (w.ID === widget.ID) {
+                            this.widgets.splice(i, 1);
+                        } 
+                    },
+                    (error: any) => this.errorMessage = <any>error);
+                }
+            );
         }
     }
 }
