@@ -1,10 +1,7 @@
 "use strict";
 var gulp = require("gulp");
 var del = require("del");
-var tsc = require("gulp-typescript");
 var sourcemaps = require('gulp-sourcemaps');
-var tsProject = tsc.createProject("tsconfig.json");
-var tslint = require('gulp-tslint');
 
 /**
  * Remove build directory.
@@ -12,31 +9,6 @@ var tslint = require('gulp-tslint');
 gulp.task('clean', function (cb) {
     return del(["build"], cb);
 });
-
-/**
- * Lint all custom TypeScript files.
- */
-gulp.task('tslint', function () {
-    return gulp.src("src/**/*.ts")
-        .pipe(tslint({
-        formatter: 'prose'
-    }))
-        .pipe(tslint.report());
-});
-
-/**
- * Compile TypeScript sources and create sourcemaps in build directory.
- */
-
-gulp.task("compile", ["tslint"], function () {
-    var tsResult = gulp.src("src/**/*.ts")
-        .pipe(sourcemaps.init())
-        .pipe(tsc(tsProject));
-    return tsResult.js
-        .pipe(sourcemaps.write(".", { sourceRoot: '/src' }))
-        .pipe(gulp.dest("build"));
-});
-
 
 /**
  * Copy all resources that are not TypeScript files into build directory.
@@ -59,7 +31,7 @@ gulp.task("src", function () {
     return gulp.src([
         "src/**/*", 
         "!**/*.ts",
-        "!src/index.html",
+        "!src/index.html",         /* server task will get these next three... */
         "!src/systemjs.config.js",
         "!src/package.json"
     ])
@@ -71,14 +43,14 @@ gulp.task("src", function () {
  */
 gulp.task("libs", function () {
     return gulp.src([
+        'bootstrap/dist/**',
         'core-js/client/shim.min.js',
         'systemjs/dist/system-polyfills.js',
         'systemjs/dist/system.src.js',
         'reflect-metadata/Reflect.js',
         'rxjs/**',
         'zone.js/dist/**',
-        '@angular/**',
-        'bootstrap/dist/**'
+        '@angular/**'
     ], { cwd: "node_modules/**" }) /* Glob required here. */
         .pipe(gulp.dest("build/lib"));
 });
