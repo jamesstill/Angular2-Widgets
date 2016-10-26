@@ -12,7 +12,6 @@
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "typings": "typings",
     "clean": "gulp clean",
-    "compile": "gulp compile",
     "build": "gulp build"
   },
   "license": "ISC",
