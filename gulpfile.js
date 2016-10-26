@@ -49,6 +49,11 @@ gulp.task("libs", function () {
         'systemjs/dist/system.src.js',
         'reflect-metadata/Reflect.js',
         'rxjs/bundles/**',
+        'rxjs/Observable/**',
+        'rxjs/add/operator/map.js',
+        'rxjs/add/operator/do.js',
+        'rxjs/add/operator/catch.js',
+        'rxjs/add/operator/throw.js',
         'zone.js/dist/**',
         '@angular/**/bundles/*'
     ], { cwd: "node_modules/**" }) /* Glob required here. */
