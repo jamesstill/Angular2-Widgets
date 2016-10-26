@@ -1,0 +1,88 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+
+    <div class="panel-body" *ngIf='widget'>
+        <form class="form-horizontal" 
+              #editForm="ngForm"  
+              (ngSubmit)="saveWidget(editForm)">
+            <fieldset>
+                <div class="form-group" 
+                     [ngClass]="{'has-error': (shapeVar.touched || shapeVar.dirty) && !shapeVar.valid }">
+                    <label class="col-md-2 control-label" for="inputWidgetShape">Shape</label>
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                                id="inputWidgetShape" 
+                                type="text" 
+                                placeholder="Shape" 
+                                required 
+                                minlength="3" 
+                                maxlength="20"
+                                [(ngModel)] = "widget.Shape"
+                                name="Shape"
+                                #shapeVar = "ngModel" />
+                        <span class="help-block" *ngIf="(shapeVar.touched || shapeVar.dirty) && shapeVar.errors">
+                            <span *ngIf="shapeVar.errors.required">
+                                Please enter a shape.
+                            </span>
+                            <span *ngIf="shapeVar.errors.minlength">
+                                Shape must be at least 3 characters.
+                            </span>
+                            <span *ngIf="shapeVar.errors.maxlength">
+                                Shape cannot exceed 20 characters.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" 
+                     [ngClass]="{'has-error': (nameVar.touched || nameVar.dirty) && !nameVar.valid }">
+                    <label class="col-md-2 control-label" for="inputWidgetName">Name</label>
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                                id="inputWidgetName" 
+                                type="text" 
+                                placeholder="Name" 
+                                required 
+                                minlength="3" 
+                                maxlength="50"
+                                [(ngModel)] = "widget.Name"
+                                name="Name"
+                                #nameVar = "ngModel" />
+                        <span class="help-block" *ngIf="(nameVar.touched || nameVar.dirty) && nameVar.errors">
+                            <span *ngIf="nameVar.errors.required">
+                                Please enter the name.
+                            </span>
+                            <span *ngIf="nameVar.errors.minlength">
+                                Name must be at least 3 characters.
+                            </span>
+                            <span *ngIf="nameVar.errors.maxlength">
+                                Name cannot exceed 50 characters.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    type="submit"
+                                    [disabled]='!editForm.valid'>
+                                Save
+                            </button>
+                        </span>
+                        <span>
+                            <a class="btn btn-default"
+                               style="width:80px"
+                               [routerLink]="['/widgets']">
+                                Cancel
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

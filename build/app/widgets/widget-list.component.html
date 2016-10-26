@@ -1,0 +1,39 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+
+    <div class="has-error" *ngIf="errorMessage">
+        {{errorMessage}}
+    </div>
+
+    <div class="table-responsive">
+        <table class="table" *ngIf="widgets && widgets.length">
+            <thead>
+                <tr>
+                    <td class="bold">ID</td>
+                    <td class="bold">Shape</td>
+                    <td class="bold">Name</td>
+                    <td><a class="btn btn-primary" [routerLink]="['/widget-create']">Create</a></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let widget of widgets'>
+                    <td>
+                        <a class="btn btn-primary" [routerLink]="['/widget', widget.ID]">{{ widget.ID }}</a>
+                    <td>
+                        {{ widget.Shape }}
+                    </td>
+                    <td>
+                        {{ widget.Name }}
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" [routerLink]="['/widget-edit', widget.ID]">Edit</a>
+                        &nbsp;&nbsp;
+                        <a class="btn btn-danger" (click)="deleteWidget(widget)">Delete</a>                               
+                    </td>
+                </tr>
+            </tbody>
+         </table>
+    </div>
+</div>

@@ -10,7 +10,10 @@
     "bundle": "node bundle.js",
     "bundle:prod": "node bundle.js --prod",
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "typings": "typings"
+    "typings": "typings",
+    "clean": "gulp clean",
+    "compile": "gulp compile",
+    "build": "gulp build"
   },
   "license": "ISC",
   "dependencies": {
@@ -34,7 +37,13 @@
     "lite-server": "^2.2.0",
     "tslint": "^3.7.4",
     "typescript": "^2.0.2",
-    "typings": "^1.0.4"
+    "typings": "^1.0.4",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-tslint": "^6.1.2",
+    "gulp-typescript": "^3.0.2",
+    "ts-node": "^1.6.0"
   },
   "repository": {}
 }

@@ -1,0 +1,21 @@
+<div class="panel panel-primary" *ngIf="widget">
+    <div class="panel-heading">
+        {{pageTitle + ": " + widget.Shape + " " + widget.Name}}
+    </div>
+
+    <div class="panel-body">
+        <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
+
+        <div class="row">
+            <div class="col-md-2">ID: <span class="bold red">{{widget.ID}}</span></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">Shape: <span class="bold red">{{widget.Shape}}</span></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">Name: <span class="bold red">{{widget.Name}}</span></div>
+        </div>
+    </div>
+</div>
