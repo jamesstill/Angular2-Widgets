@@ -48,12 +48,7 @@ gulp.task("libs", function () {
         'systemjs/dist/system-polyfills.js',
         'systemjs/dist/system.src.js',
         'reflect-metadata/Reflect.js',
-        'rxjs/bundles/**',
-        'rxjs/Observable.js',
-        'rxjs/add/operator/map.js',
-        'rxjs/add/operator/do.js',
-        'rxjs/add/operator/catch.js',
-        'rxjs/add/operator/throw.js',
+        'rxjs/**',
         'zone.js/dist/**',
         '@angular/**/bundles/*'
     ], { cwd: "node_modules/**" }) /* Glob required here. */
