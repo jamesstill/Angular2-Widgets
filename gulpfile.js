@@ -49,7 +49,7 @@ gulp.task("libs", function () {
         'systemjs/dist/system.src.js',
         'reflect-metadata/Reflect.js',
         'rxjs/bundles/**',
-        'rxjs/observable/**',
+        'rxjs/Observable.js',
         'rxjs/add/operator/map.js',
         'rxjs/add/operator/do.js',
         'rxjs/add/operator/catch.js',
