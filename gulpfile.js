@@ -47,7 +47,8 @@ gulp.task("resources", ["server", "src"], function () {
 
 gulp.task("server", function () {
     return gulp.src([
-        'index.js', 
+        'index.js',
+        'index.html', 
         'systemjs.config.js', 
         'package.json'
     ], { cwd: "server"})
